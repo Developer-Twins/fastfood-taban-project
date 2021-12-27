@@ -1,0 +1,50 @@
+// media query
+// max-width
+@mixin media-w($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+// max-height
+@mixin media-h($breakpoint) {
+  @media screen and (max-height: $breakpoint) {
+    @content;
+  }
+}
+// max-width and min-width
+@mixin media-w2($breakpoint1, $breakpoint2) {
+  @media screen and (max-width: $breakpoint1) and (min-width: $breakpoint2) {
+    @content;
+  }
+}
+// max-width and max-height
+@mixin media-w-h($breakpoint-x, $breakpoint-y) {
+  @media screen and (max-width: $breakpoint-x) and (max-height: $breakpoint-y) {
+    @content;
+  }
+}
+// max-width and orientation
+@mixin media-w-o($breakpoint, $orient) {
+  @media screen and (max-width: $breakpoint) and (orientation:$orient) {
+    @content;
+  }
+}
+
+// max-width and orientation
+
+@mixin media-w-o($breakpoint-x, $orient) {
+  @media screen and (max-width: $breakpoint-x) and (orientation: $orient) {
+    @content;
+  }
+}
+
+@mixin border($x, $y, $sizex, $sizey, $colorx: $black, $colory: $black) {
+  border-#{$x}: $sizex solid $colorx;
+  border-#{$y}: $sizey solid $colory;
+}
+
+@mixin font($family, $size, $weight: "normal") {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+}

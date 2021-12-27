@@ -1,0 +1,88 @@
+.contact-background::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($black, 0.5);
+  backdrop-filter: blur(10px);
+}
+.contact-us {
+  font-size: 1rem;
+  position: fixed;
+  z-index: 3000;
+  top: calc(50% + 77px);
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 38.5px));
+  width: 40vw;
+  min-width: 350px;
+  height: 350px;
+  background-color: $black;
+  color: $cream-light;
+  // 450px=28.12em
+  @include media-w(28.12em) {
+    font-size: 0.8rem;
+    width: 80vw;
+    min-width: 250px;
+  }
+  // 550px=34.37em
+  @include media-h(34.37em) {
+    font-size: 0.8rem;
+    height: 210px;
+  }
+}
+.contact-us::after {
+  content: "";
+  width: 60%;
+  height: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  @include border(top, right, 10px, 10px, #c38323, $gold);
+}
+.contact-us::before {
+  content: "";
+  width: 60%;
+  height: 50%;
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  @include border(bottom, left, 10px, 10px, #c38323, $gold);
+}
+.contact-us__close svg {
+  position: absolute;
+  z-index: 3100;
+  top: 10px;
+  right: 15px;
+  color: $red;
+  font-size: 3.4em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.contact-us__close svg {
+  &:hover,
+  &:active {
+    color: red;
+  }
+}
+.popup-enter-active {
+  animation: animate-popup 0.5s reverse ease-out;
+}
+.popup-leave-active {
+  animation: animate-popup 0.5s ease-in;
+}
+@keyframes animate-popup {
+  0% {
+    transform: translate(-50%, calc(-50% - 38.5px)) scale(1);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-50%, -350px) scale(0.8);
+    opacity: 0;
+  }
+}

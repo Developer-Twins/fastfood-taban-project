@@ -1,0 +1,29 @@
+// basic
+@import "./basic/basicColor";
+@import "./basic/basicTpography";
+@import "./basic/basicMixin";
+@import "./basic/basicExtend";
+@import "./basic/basicBtn";
+@import "./basic/basicGlobal";
+@import "./basic/basicLoader";
+
+// pages
+
+@import "./component/page/AboutUs";
+@import "./component/page/form";
+@import "./component/page/menu";
+@import "./component/page/ourMenu";
+@import "./component/page/store";
+
+@import "./component/loader";
+@import "./component/basePopup";
+@import "./component/footer";
+@import "./component/header";
+@import "./component/logIn";
+@import "./component/nav";
+@import "./component/section";
+@import "./component/signUp";
+@import "./component/sliders";
+@import "./component/theContactUs";
+@import "./component/properties";
+@import "./component/point";

@@ -1,0 +1,330 @@
+.home-header {
+  grid-column: full-start / full-end;
+  position: relative;
+  z-index: 1;
+  background-color: $cream-light;
+}
+.header {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2rem;
+  background-image: linear-gradient(
+    -60deg,
+    $gold 0%,
+    $gold 40%,
+    $cream-dark 40%,
+    $cream-dark 100%
+  );
+}
+.header__icons {
+  display: flex;
+  justify-content: space-between;
+  width: 25rem;
+  margin-right: 2rem;
+  position: absolute;
+  bottom: 2rem;
+  /* 500px = 31.25em */
+  @include media-w(31.25em) {
+    width: 20rem;
+  }
+  /* 400px = 25em  700px =43.75em */
+  @include media-w-h(25em, 43.75em) {
+    width: 17rem;
+  }
+  // 900px=56.25em
+  @include media-w-o(56.25em, landscape) {
+    flex-direction: column;
+    bottom: 50%;
+    transform: translateY(50%);
+    height: 70%;
+  }
+}
+
+.header__icons svg:nth-child(1) {
+  &:hover,
+  &:active {
+    color: rgb(110, 160, 207);
+  }
+}
+.header__icons svg:nth-child(2) {
+  &:hover,
+  &:active {
+    color: skyblue;
+  }
+}
+.header__icons svg:nth-child(3) {
+  &:hover,
+  &:active {
+    color: rgb(255, 136, 0);
+  }
+}
+.header__icons svg:nth-child(4) {
+  &:hover,
+  &:active {
+    color: rgb(6, 204, 6);
+  }
+}
+.header__icons svg {
+  font-size: 3.5rem;
+  color: $cream-light;
+  cursor: pointer;
+  transition: color 0.3s;
+  /* 500px = 31.25em */
+  @include media-w(31.25em) {
+    font-size: 3rem;
+  }
+  /* 400px = 25em  700px =43.75em */
+  @include media-w-h(25em, 43.75em) {
+    font-size: 2.5rem;
+  }
+  @include media-w-o(56.25em, landscape) {
+    font-size: 2.3rem;
+  }
+}
+.header__img {
+  width: 25vw;
+  min-width: 25rem;
+  min-height: 25rem;
+  height: 25vw;
+  background-image: linear-gradient($black, $black);
+  border-radius: 50%;
+  border: 2rem solid $mustard;
+  position: absolute;
+  top: 50%;
+  right: 34%;
+  transform: translate(34%, -50%);
+  overflow: hidden;
+}
+.header__pictur1 {
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%) rotate(0);
+  opacity: 0;
+  animation-name: moveup, spin;
+  animation-duration: 1s, 1.5s;
+  animation-delay: 0s, 0.8s;
+  animation-fill-mode: forwards;
+}
+@keyframes moveup {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-20%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(2520deg);
+    opacity: 1;
+  }
+}
+.header__pictur2 {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease 1.5s forwards;
+}
+@keyframes scale {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.header__content {
+  color: black;
+  font-family: "naz";
+  position: absolute;
+  top: 50%;
+  left: 7%;
+  transform: translate(-10%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  height: 40%;
+
+  @include media-w(112.5em) {
+    font-size: 0.9rem;
+  }
+  /* 1600px = 100em */
+  @include media-w(100em) {
+    font-size: 0.8rem;
+  }
+  /* 1400px = 87.5em */
+  @include media-w(87.5em) {
+    height: 70%;
+    top: 10%;
+    transform: translate(-8%, 0);
+  }
+  /* 800px = 50em */
+  @include media-w(50em) {
+    font-size: 0.7rem;
+  }
+  /* 700px = 43.75em */
+  @include media-w(43.75em) {
+    font-size: 0.6rem;
+  }
+  /* 600px = 37.5em */
+  @include media-w(37.5em) {
+    width: 100%;
+    height: 85%;
+    font-size: 0.6rem;
+    top: 2%;
+  }
+  /* 500px = 31.25em */
+  @include media-w(31.25em) {
+    font-size: 0.48rem;
+    * {
+      text-align: center;
+    }
+  }
+  // 1050px=65.625em
+
+  @include media-w-o(65.625em, landscape) {
+    font-size: 0.5rem;
+    top: 5%;
+    left: 4%;
+  }
+  // 900px=56.25em
+  @include media-w-o(56.25em, landscape) {
+    font-size: 0.4rem;
+  }
+  // 730px=45.625em
+  @include media-w-o(45.625em, landscape) {
+    font-size: 0.3rem;
+  }
+}
+.header__content .header__caption {
+  font-size: 7em;
+  color: #111;
+  position: relative;
+  opacity: 0;
+  animation: opacitying 2s ease forwards;
+  margin: 0 5px;
+  // 400px=25em and 700px=43.75em
+  @media screen and (max-width: 25em) and (max-height: 43.75em) {
+    font-size: 5em;
+  }
+}
+@keyframes opacitying {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.header__content .header__caption::after {
+  content: "به فست فودی تابان خوش آمدید";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #c23802;
+  z-index: -1;
+  filter: blur(0.6rem);
+
+  animation: bluring 1.5s 2s ease infinite;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@keyframes bluring {
+  0% {
+    filter: blur(0.6rem);
+  }
+  50% {
+    filter: blur(0.2rem);
+  }
+  100% {
+    filter: blur(0.6rem);
+  }
+}
+.header__content .header__describe {
+  font-size: 4em;
+  font-family: "ziba";
+  justify-self: center;
+  @include media-w(87.5em) {
+    margin-top: 2rem;
+  }
+}
+.header__content .header__footer {
+  font-size: 4em;
+  font-family: "ziba";
+  font-weight: 900;
+  justify-self: center;
+  transform: translateX(30rem);
+  opacity: 0;
+  color: darken($mustard, 10%);
+  animation: footer-p 1.5s ease forwards;
+  text-shadow: 0 4px 5px darken($mustard, 15%);
+  margin: 0 5px;
+  @include media-w(87.5em) {
+    margin-top: auto;
+  }
+  /* 1200px = 75em */
+  @include media-w(75em) {
+    align-self: flex-end;
+  }
+  /* 800px = 50em */
+  @include media-w(50em) {
+    font-size: 3.5em;
+  }
+  /* 600px = 37.5em */
+
+  @include media-w(37.5em) {
+    margin-left: auto;
+    margin-right: 2rem;
+  }
+  /* 500px = 31.25em */
+  @include media-w(31.25em) {
+    font-size: 4em;
+  }
+  /* 400px = 25em */
+  @include media-w(25em) {
+    font-size: 4em;
+  }
+  /* 350px = 21.875em */
+  @include media-w(21.875em) {
+    font-size: 3.5em;
+  }
+}
+
+@keyframes footer-p {
+  0% {
+    transform: translateX(30rem);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-5rem);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(0) scale(1.1);
+    opacity: 1;
+    text-shadow: 0 9px 7px darken($mustard, 15%);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

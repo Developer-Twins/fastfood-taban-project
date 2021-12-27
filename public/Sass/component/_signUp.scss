@@ -1,0 +1,191 @@
+.sign-up {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, max-content);
+  row-gap: 50px;
+  column-gap: 40px;
+  font-family: "naz";
+  backface-visibility: hidden;
+  // 1430px=89.37em
+  @include media-w(89.37em){
+    row-gap: 60px;
+  }
+  // 800px=50em
+  @include media-w(50em) {
+    grid-template-rows: repeat(8, max-content);
+    grid-template-columns: repeat(1, 1fr);
+  }
+  // 500px=31.25em
+  @include media-w(31.25em) {
+    row-gap: 75px;
+  }
+}
+.sign-up__btn {
+  grid-column: 1/-1;
+  justify-self: center;
+  align-self: flex-start;
+  padding: 5px 50px;
+  margin-bottom: 30px;
+}
+.sign-up__group {
+  transition: all 0.3s;
+  font-size: 2.7rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  &:last-of-type {
+    grid-column: 1/-1;
+  }
+  &:not(.sign-up__group-radio)::after {
+    content: "";
+    width: 60%;
+    height: 30%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: -1;
+    @include border(top, right, 5px, 5px, #c38323, $gold);
+    transform: skewX(-10deg);
+  }
+  &:focus-within {
+    transform: translateY(-5px);
+  }
+}
+
+.sign-up__input {
+  &:focus {
+    box-shadow: 0 1rem 2rem rgb(0 0 0 / 10%);
+  }
+  transition: all 0.3s, border 0.5s;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 5px 10px;
+  display: block;
+  font-size: inherit;
+  font-family: inherit;
+  position: relative;
+  border-bottom: 3px solid white;
+
+  &::placeholder {
+    color: lighten($black, 35%);
+    font-family: "naz";
+  }
+
+  &:placeholder-shown + .sign-up__label {
+    top: 5px;
+    right: 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.sign-up__input[type="password"] {
+  padding: 11px 10px;
+  font-size: 1.9rem;
+}
+.sign-up__input[type="password"]::placeholder {
+  font-size: 2.7rem;
+}
+.sign-up__input-email {
+  // 700px=43.75em
+  @include media-w(43.75em) {
+    padding: 9px 10px;
+    font-size: 2.2rem;
+  }
+}
+.sign-up__input-email::placeholder {
+  // 700px=43.75em
+  @include media-w(43.75em) {
+    font-size: 2.7rem;
+  }
+}
+.sign-up__label {
+  display: block;
+  position: absolute;
+  color: lighten($black, 20%);
+  top: -45px;
+  right: 10px;
+  font-size: 2.3rem;
+  transition: all 0.3s ease-out;
+}
+
+.sign-up__group-radio {
+  @extend %center;
+  padding: 0;
+  align-self: flex-start;
+}
+
+.sign-up__radio {
+  width: 35%;
+  min-width: 100px;
+  display: inline-block;
+
+  &-input {
+    display: none;
+  }
+  &-label {
+    font-family: "naz";
+    @extend %center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  &-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $mustard;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+
+    // top: -0.5rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $mustard;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &-input:checked ~ &-label &-button::after {
+    opacity: 1;
+  }
+}
+.go-log {
+  margin: 25px 0px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: $black;
+  cursor: pointer;
+  font-size: 27px;
+  // 600px=37.5em
+  @include media-w(37.5em){
+    font-size: 22px
+  };
+  // 450px=28.12em
+  @include media-w(28.12em){
+    font-size: 19px
+  };
+  &:hover strong {
+    color: darken($mustard, 5%);
+  }
+  strong {
+    transition: color 0.2s;
+    font-family: "ziba";
+    color: $mustard;
+  }
+}
+.go-log-net {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,260 @@
+.sec-menu {
+  grid-column: center-start/center-end;
+  grid-row: 2/3;
+  display: grid;
+  margin: 0;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 10rem 0.4rem min-content;
+  transition: all 1s;
+}
+.sec-menu__title {
+  font-family: "vazir";
+  font-size: 3rem;
+  background-image: linear-gradient(to left, $mustard, $black);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  align-self: center;
+  justify-self: center;
+
+  //500px = 31.25em
+  @include media-w(31.25em) {
+    font-size: 2.5rem;
+  }
+}
+.sec-menu__line {
+  box-sizing: content-box;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to left, $mustard 40%, $black 50%);
+  border-radius: 50%;
+}
+.container-cards {
+  margin-top: 40px;
+  grid-column: 1/-1;
+  grid-row: 3/-1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 2rem 2.7rem;
+  width: 38rem;
+  height: 49rem;
+  display: grid;
+  background-color: $gold;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 3fr 1fr min-content 1fr 1.2fr;
+  row-gap: 3px;
+  border-radius: 0.5rem;
+  font-family: "naz";
+  font-size: 4rem;
+  color: $black;
+  align-items: center;
+  justify-items: center;
+  margin: 3rem 1rem;
+  transition: all 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  //1000px = 62.5em
+  @include media-w(62.5em) {
+    padding: 2rem 2rem 2.7rem;
+    width: 30rem;
+    height: 45rem;
+    font-size: 3.5rem;
+  }
+}
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 30px 30px -20px;
+}
+.card__circle {
+  position: relative;
+  overflow: hidden;
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  border-radius: 50%;
+  background-color: $black;
+  border: 1rem double $black;
+  background-clip: content-box;
+  width: 5em;
+  height: 5em;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 10px;
+}
+.linear {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(195, 131, 35) 0%,
+    rgba(51, 51, 51, 1) 100%
+  );
+  animation: move-linear 12s linear infinite;
+  transform: translate(-40%, -35%);
+  opacity: 0.6;
+  filter: blur(15px);
+}
+@keyframes move-linear {
+  0% {
+    transform: translate(-40%, -35%);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(40%, -35%);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(40%, 35%);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(-40%, 35%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-40%, -35%);
+    opacity: 0.6;
+  }
+}
+.card__image {
+  position: relative;
+  z-index: 10;
+  width: 75%;
+  transition: all 0.5s ease;
+  //1000px = 62.5em
+  @include media-w(62.5em) {
+    width: 60%;
+  }
+}
+.card__image:hover {
+  transform: translateZ(1px);
+}
+.card__name {
+  margin-top: 10px;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  animation: name 1.5s ease-in-out infinite;
+  font-size: 0.8em;
+}
+@keyframes name {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}
+.card__line {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  background-color: rgba(51, 51, 51, 0.2);
+  border-radius: 45%;
+  width: 40%;
+  height: 6px;
+  animation: shadow 1.5s ease-in-out infinite;
+}
+@keyframes shadow {
+  0% {
+    width: 40%;
+    backface-visibility: hidden;
+  }
+  50% {
+    width: 60%;
+    backface-visibility: hidden;
+  }
+  0% {
+    width: 40%;
+    backface-visibility: hidden;
+  }
+}
+
+.card__price {
+  font-size: 0.7em;
+  position: relative;
+  z-index: 5;
+  grid-column: 2/3;
+  grid-row: 4/5;
+  padding: 3px 15px;
+  margin-top: 20px;
+}
+.card__price::after,
+.card__price::before {
+  content: "";
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+}
+.card__price::after {
+  top: 0;
+  left: 0;
+  @include border(bottom, left, 2px, 2px);
+}
+.card__price::before {
+  top: 0;
+  right: 0;
+  @include border(top, right, 2px, 2px);
+}
+.card__label {
+  margin-right: 10px;
+}
+
+.card__btn {
+  align-self: flex-end;
+  grid-column: 2/3;
+  grid-row: 5/6;
+  font-size: 0.6em; //0.6*4rem = 24px
+  padding: 0.2em 2.3em;
+}
+
+.art-top {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  position: absolute;
+  left: -90px;
+  top: -30px;
+  perspective: 50px;
+}
+.art-top__line {
+  transform: rotate(-45deg) rotateX(40deg);
+  opacity: 0.3;
+}
+
+.art-bottom {
+  grid-column: 1/-1;
+  grid-row: 5/6;
+  position: absolute;
+  right: -90px;
+  bottom: -30px;
+  perspective: 50px;
+}
+.art-bottom__line {
+  transform: rotate(-45deg) rotateX(-40deg);
+  opacity: 0.3;
+}
+.art__line div {
+  width: 150px;
+  margin: 4px;
+  height: 2px;
+  background-color: $black;
+}

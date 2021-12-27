@@ -1,0 +1,370 @@
+.invoice {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 25px 25px -20px;
+  position: absolute;
+  overflow: hidden;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  background-color: $white;
+  //950px = 59.37em
+  @include media-w(59.37em) {
+    width: 94vw;
+  }
+}
+.header-invoice {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, max-content);
+  font-family: "vazir";
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 30px auto;
+  width: 90%;
+  // 1200px=75em
+  @include media-w(75em) {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, max-content);
+  }
+  //950px = 59.37em
+  @include media-w(59.37em) {
+    font-size: 1.3rem;
+  }
+  // 400px=25em
+  @include media-w(25em) {
+    font-size: 1.1rem;
+  }
+
+  &__child {
+    padding: 1.5rem;
+  }
+  &__name {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  &__date {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    @include media-w(75em) {
+      grid-row: 2/3;
+      grid-column: 1/2;
+    }
+  }
+  &__address {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    @include media-w(75em) {
+      grid-row: 3/4;
+      grid-column: 1/2;
+    }
+  }
+}
+.main-invoice {
+  width: 90%;
+  margin: auto;
+  font-size: 1rem;
+}
+.main-invoice-title {
+  display: grid;
+  grid-template-columns: 30% 30% 20% 20%;
+  height: 100%;
+  justify-items: center;
+  padding: 10px 0;
+  font-family: "vazir";
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: $black;
+  color: $white;
+  //1200px = 75em
+  @include media-w(75em) {
+    font-size: 1.3em;
+  }
+  //900px = 56.25em
+  @include media-w(56.25em) {
+    font-size: 1.15em;
+  }
+}
+.main-invoice-title h2:last-child {
+  justify-self: flex-start;
+}
+
+.main-invoice-product {
+  display: grid;
+  grid-template-columns: 30% 30% 20% 10% 10%;
+  justify-items: center;
+  padding: 10px 0;
+  font-size: 1.8em; // 18px
+  font-family: "naz";
+  //950px = 59.37em
+  @include media-w(59.37em) {
+    font-size: 1.5em;
+  }
+}
+.main-invoice-product:nth-of-type(even) {
+  background-color: rgb(223, 223, 223);
+}
+.main-invoice-product:nth-of-type(odd) {
+  background-color: $white;
+}
+.main-invoice-product__quantity {
+  @extend %center;
+}
+.icon-box {
+  @extend %center;
+}
+.main-invoice-product__quantity .icon-box svg {
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0px 15px;
+  transition: all 0.2s;
+}
+.main-invoice-product__quantity .icon-box svg:active {
+  transform: scale(0.9);
+}
+.main-invoice-product__quantity .icon-box:first-of-type svg {
+  color: green;
+}
+.main-invoice-product__quantity .icon-box:last-of-type svg {
+  color: $red;
+}
+.main-invoice-product__trash {
+  @extend %center;
+}
+
+.main-invoice-product__trash .icon-box svg {
+  color: $black;
+  font-size: 1.8em;
+  margin: 0px 5px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.main-invoice-product__trash .icon-box svg {
+  &:hover,
+  &:active {
+    color: $red;
+  }
+}
+.footer-invoice {
+  font-family: "naz";
+  margin: 50px auto 20px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-size: 1rem;
+  //1200px = 75em
+  @include media-w(75em) {
+    font-size: 0.85rem;
+  }
+  //600px = 37.5em
+  @include media-w(37.5em) {
+    flex-direction: column-reverse;
+  }
+}
+.side-footer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  //600px = 37.5em
+  @include media-w(37.5em) {
+    width: 100%;
+  }
+}
+.left-side-footer {
+  //600px = 37.5em
+  @include media-w(37.5em) {
+    margin-bottom: 70px;
+  }
+}
+
+.side-footer button {
+  font-family: inherit;
+  align-self: center;
+  font-size: 2em;
+}
+
+.total-price {
+  font-family: inherit;
+  font-size: 3em;
+  background-color: goldenrod;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+.card-delete-all {
+  padding: 10px 20px;
+  color: $red;
+}
+.parag-footer {
+  font-family: "ziba";
+  font-size: 2.5em;
+  text-align: center;
+}
+.img1-invoice {
+  width: 100%;
+  margin: 10px 0px;
+  // background-color: goldenrod;
+}
+.img1-invoice img {
+  width: 100%;
+  height: 100%;
+}
+.img2-invoice {
+  z-index: -200;
+  width: 100%;
+  height: 700px;
+  position: absolute;
+  bottom: -230px;
+  right: 0;
+}
+.img2-invoice img {
+  transform: rotate(180deg);
+  width: 100%;
+  height: 100%;
+}
+.img3-invoice {
+  position: absolute;
+  z-index: 10000;
+  left: 20px;
+  top: 20px;
+  width: 12%;
+  min-width: 100px;
+
+  // 500px=31.25em
+  @include media-w(31.25em) {
+    min-width: 60px;
+  }
+}
+.img3-invoice img {
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  animation: image3 0.3s 0.5s ease-out forwards;
+}
+.empty {
+  position: relative;
+  background-color: $cream-light;
+  text-align: center;
+  padding: 30px 5px 10px;
+  width: 80%;
+  min-width: 250px;
+  margin: 40px auto;
+}
+.empty__parag {
+  font-family: "naz";
+  font-size: 3rem;
+  line-height: 2;
+  // 700px=43.75em
+  @include media-w(43.75em) {
+    font-size: 2.5rem;
+  }
+}
+.empty__link {
+  font-family: "ziba";
+  text-decoration: none;
+  color: purple;
+  transition: all 0.2s;
+}
+.empty__link:hover {
+  text-shadow: 0 2px 5px rgba($black, 0.3);
+}
+.empty__img {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  object-position: center center;
+}
+.v-enter-active {
+  animation: moving 0.5s reverse;
+}
+.v-leave-active {
+  animation: moving 0.5s;
+}
+@keyframes moving {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.group-enter-active {
+  animation: moving-group 0.5s reverse;
+}
+.group-leave-active {
+  animation: moving-group 0.5s;
+}
+@keyframes moving-group {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+}
+
+@keyframes image3 {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.main-invoice-container2 {
+  display: flex;
+  width: 100%;
+  border-bottom: 1.5px solid $white;
+}
+
+.main-invoice-title2 {
+  width: 135px;
+  height: auto;
+  grid-column: 1/2;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(4, 40px);
+  grid-row: 1/-1;
+  row-gap: 20px;
+  grid-column: 1/2;
+  justify-items: center;
+  align-items: center;
+  // 400px=25em
+  @include media-w(25em) {
+    width: 110px;
+  }
+}
+.main-invoice-title2 h2:last-child {
+  justify-self: center;
+}
+.main-invoice-product2 {
+  width: calc(100% - 135px);
+  grid-column: 1/2;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(5, 40px);
+  row-gap: 20px;
+  align-items: center;
+  text-align: center;
+
+  //800px = 50em
+  @include media-w(50em) {
+    font-size: 1.7rem;
+  }
+  // 400px=25em
+  @include media-w(25em) {
+    font-size: 1.4rem;
+    width: calc(100% - 110px);
+  }
+}

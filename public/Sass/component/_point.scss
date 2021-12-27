@@ -1,0 +1,192 @@
+.sec-point {
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, $cream-light, $gold 60%);
+  display: block;
+  grid-row: 5/6;
+  overflow: hidden;
+}
+.point {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 50px;
+  // 1000px=62.5em
+  @include media-w(62.5em) {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+.point-container-image {
+  width: 30%;
+  // background-color: rgb(208, 221, 214);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  &.active .point-image {
+    img {
+      animation: scale-easeInBounce 2.2s reverse forwards;
+    }
+  }
+  // 1000px=62.5em
+  @include media-w(62.5em) {
+    width: 35%;
+    min-width: 290px;
+    margin-top: 30px;
+  }
+  .point-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    // background-color: slategray;
+    img {
+      width: 100%;
+      transform: scale(0);
+      // height: 100%;
+    }
+  }
+}
+.point-container-text {
+  line-height: 1.8;
+  font-size: 1rem;
+  width: 70%;
+  // background-color: tan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.active .point-text {
+    &__title {
+      animation: point-title 1s forwards;
+    }
+    &__parag p {
+      animation: point-paragraph 0.6s forwards;
+    }
+    &__parag svg {
+      animation: scale-easeInBounce 0.8s reverse forwards;
+    }
+    &__btn a {
+      animation: point-title 0.6s 3.5s forwards;
+    }
+    @for $i from 2 to 10 {
+      &__parag:nth-of-type(#{$i}) {
+        svg {
+          animation-delay: #{$i / 2.5}s;
+        }
+        p {
+          animation-delay: #{$i / 3}s;
+        }
+      }
+    }
+  }
+  // 1000px=62.5em
+  @include media-w(62.5em) {
+    width: 100%;
+  }
+  // 600px=37.5em
+  @include media-w(37.5em) {
+    font-size: 0.8rem;
+  }
+  // 400px=25em
+  @include media-w(25em) {
+    font-size: 0.7rem;
+  }
+}
+.point-text {
+  //   background-color: teal;
+  width: 90%;
+  &__parag {
+    margin: 25px 0;
+    @include font("tanha", 2em);
+    display: flex;
+    align-items: flex-start;
+    p {
+      opacity: 0;
+      color: $black;
+      margin-right: 15px;
+    }
+    svg {
+      color: rgb(1, 160, 1);
+      transform: scale(0);
+    }
+  }
+  // background-color: slateblue;
+  &__title {
+    filter: blur(20px);
+    opacity: 0;
+    color: $black3;
+    margin-bottom: 35px;
+    @include font("vazir", 1.5em, bold);
+  }
+  &__btn {
+    margin: 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    a {
+      filter: blur(20px);
+      opacity: 0;
+      margin: auto;
+      font-size: 2.3em;
+      padding: 0.2em 0.8em;
+      text-decoration: none;
+      // 600px=37.5em
+    }
+  }
+}
+.point-background {
+  width: 40%;
+  position: absolute;
+  z-index: -2;
+  bottom: 0;
+  left: 50%;
+  opacity: 0.15;
+  transform: translate(-50%, 50%);
+  // 1000px=62.5em
+  @include media-w(62.5em){
+    width: 60%;
+  }
+  // 800px=50em
+  @include media-w(50em){
+    width: 80%;
+  }
+  // 550px=34.37em
+  @include media-w(34.37em){
+    width: 98%;
+  }
+  img {
+    width: 100%;
+    animation: point-background 45s linear infinite;
+  }
+}
+@keyframes point-background {
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes point-paragraph {
+  0% {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes point-title {
+  from {
+    filter: blur(20px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}

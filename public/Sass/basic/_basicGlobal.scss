@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%; /*62.5% = 10px*/
+}
+body {
+  box-sizing: border-box;
+  background-color: $cream-light;
+}
+::selection {
+  background-color: $black;
+  color: $mustard;
+}
+
+
+.page-enter-active{
+  animation: page-animate-enter .25s ease-out;
+}
+.page-leave-active {
+  animation: page-animate-leave .25s ease-in;
+}
+@keyframes page-animate-enter {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes page-animate-leave {
+  from{
+    opacity: 1;
+    filter: blur(0px); 
+  }
+  30%{
+    filter: blur(10px);
+  }
+  100%{
+    filter: blur(10px);
+    opacity: 0;
+  }
+}

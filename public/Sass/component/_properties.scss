@@ -1,0 +1,137 @@
+.sec-property {
+  position: relative;
+  z-index: 1;
+  background-color: $cream-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-image: url('../public/images/property/art.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-blend-mode: color-burn;
+  // 840px=52.5em
+  @include media-w(52.5em){
+  background-size: 900px 500px;
+  background-position: center top;
+  }
+}
+
+.property-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  // 1200px=75em
+  @include media-w(75em) {
+    justify-content: center;
+  }
+}
+.property-item {
+  flex-shrink: 0;
+  width: 300px;
+  margin: 25px 20px;
+  // background-color: rgba(137, 43, 226, 0.267);
+  &.active .property-item__image img {
+    animation: scale-easeInBounce 1s reverse forwards;
+  }
+  &.active .property-item__text h3{
+    animation: property-text-animate .6s ease-out .6s forwards;
+  }
+  &.active .property-item__text p{
+    animation: property-text-animate .7s ease-out 1s forwards;
+  }
+  // 1000px=62.5em
+  @include media-w(62.5em) {
+    width: 240px;
+  }
+}
+.property-item__image {
+  // background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  margin: auto;
+  img {
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+  }
+}
+.property-item__text {
+  // background-color: aliceblue;
+  text-align: center;
+  font-size: 1rem;
+  // 600px=37.5em
+  @include media-w(37.5em){
+  font-size: .8rem;
+  }
+  h3 {
+    transform: translateY(20px);
+    opacity: 0;
+    color: $brown;
+    @include font("tanha", 2.3em, bold);
+    margin: 2em 0px 1em;
+  }
+  p {
+    transform: translateY(20px);
+    opacity: 0;
+    @include font("tanha", 1.9em);
+    color: $black2;
+    line-height: 2;
+  }
+}
+@keyframes scale-easeInBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  4% {
+    transform: scale(0.98);
+  }
+
+  8% {
+    transform: scale(0.99);
+  }
+
+  18% {
+    transform: scale(0.94);
+  }
+
+  26% {
+    transform: scale(0.98);
+  }
+
+  46% {
+    transform: scale(0.75);
+  }
+
+  64% {
+    transform: scale(0.98);
+  }
+
+  76% {
+    transform: scale(0.44);
+  }
+
+  88% {
+    transform: scale(0.11);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes property-text-animate {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

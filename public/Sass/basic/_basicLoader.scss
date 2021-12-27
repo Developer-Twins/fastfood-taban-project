@@ -1,0 +1,13 @@
+.loader,.fetch-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.loader img{
+    width: 100px;
+}
+.fetch-error{
+    @include font('vazir',25px,bold);
+    text-align: center;
+}
