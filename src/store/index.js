@@ -30,7 +30,7 @@ let store = createStore({
             {
               image: "Sandwich-Hamburger-PNG-Image.png",
               name: "همبرگر",
-              price: "6۰۰۰۰",
+              price: "۶۰۰۰۰",
             },
             {
               image: "2cd43b_088cd3570604469c9a32fd0651cac073_mv2.png",
