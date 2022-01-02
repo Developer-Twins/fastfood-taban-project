@@ -57,11 +57,6 @@ export default {
 
       validateEmail: "pending",
       validatePassword: "pending",
-      // userEmail: this.$store.state.validateModule.userEmail,
-      // userPassword: this.$store.state.validateModule.userPassword,
-
-      // validateemail: this.$store.state.validateModule.validateemail,
-      // validatePassword: this.$store.state.validateModule.validatePassword,
     };
   },
   methods: {
